@@ -13,40 +13,20 @@ import java.util.Scanner;
 public class FileOpener {
     private String fileName;
 
-    public FileOpener(String fileName) {
-        this.fileName = fileName;
+    public static Object[][] readFile(String fileName) throws IOException {
+        String contents = Files.readString(Path.of(fileName), StandardCharsets.UTF_8);
+
+        List<String> lines = List.of(contents.split("\n"));
+        ArrayList<Object[]> studentDataStream = new ArrayList<>();
+
+        studentDataStream = lines.stream()
+                .skip(1)
+                .map(line -> line.split(","))
+                .map(Stream::parseData)
+                .map(StudentGradeData::toObjectArray)
+                .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+
+        return studentDataStream.toArray(new Object[0][0]);
     }
 
-    public ArrayList<String> getLines() {
-        ArrayList<String> lines = new ArrayList<String>();
-        Scanner fileScan;
-
-        try {
-            fileScan = new Scanner(new File(fileName), StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            return lines;
-        }
-
-        while (fileScan.hasNext()) {
-            lines.add(fileScan.nextLine());
-        }
-
-        return lines;
-    }
-
-
-    public static HashSet<String> getWords(String fileName, String delimiter) {
-        String contents;
-
-        try {
-            contents = Files.readString(Path.of(fileName), StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            return new HashSet<String>();
-        }
-
-        List<String> wordList = List.of(contents.split(delimiter));
-        HashSet<String> words = new HashSet<String>();
-        words.addAll(wordList);
-        return words;
-    }
 }
