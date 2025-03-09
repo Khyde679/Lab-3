@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FileOpener {
-    private String fileName;
-
     public static Object[][] readFile(String fileName) throws IOException {
         String contents = Files.readString(Path.of(fileName), StandardCharsets.UTF_8);
 

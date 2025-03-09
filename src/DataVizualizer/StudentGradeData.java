@@ -3,7 +3,8 @@ package DataVizualizer;
 public record StudentGradeData(String id, String fname, String lname, String email, String gender, int age, String department, float attendance,
                                float midtermScore, float finalScore, float assignAvg, float quizAvg, float participation, float projScore, String grade, float studyHours,
                                boolean extracurricular, boolean internet, String parentEd, String familyIncome, int stress, float sleep) {
-public Object[] toObjectArray() {
+
+    public Object[] toObjectArray() {
     Object[] objects = new Object[22];
     objects[0] = id;
     objects[1] = fname;
@@ -29,6 +30,6 @@ public Object[] toObjectArray() {
     objects[21] = sleep;
 
     return objects;
-}
+    }
 
 }
