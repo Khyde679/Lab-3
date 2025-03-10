@@ -17,7 +17,7 @@ public class FileOpener {
         studentDataStream = lines.stream()
                 .skip(1)
                 .map(line -> line.split(","))
-                .map(Stream::parseData)
+                .map(Parser::parseData)
                 .map(StudentGradeData::toObjectArray)
                 .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
 

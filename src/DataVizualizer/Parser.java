@@ -1,6 +1,6 @@
 package DataVizualizer;
 
-public class Stream {
+public class Parser {
     public static StudentGradeData parseData(String[] data) {
         String id = "";
         String fname = "";
