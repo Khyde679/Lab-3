@@ -11,6 +11,7 @@ public class DetailsPanel extends JPanel {
     public DetailsPanel(JTable table) {
         setLayout(new BorderLayout());
         detailsLabel = new JLabel("Select an entry to see details");
+        setBackground(Color.BLUE);
 
         add(detailsLabel, BorderLayout.CENTER);
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {

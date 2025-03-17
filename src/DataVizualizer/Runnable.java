@@ -1,5 +1,6 @@
 package DataVizualizer;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -9,7 +10,5 @@ public class Runnable {
         System.out.println(Arrays.toString(data[0]));
         System.out.println(Arrays.toString(data[10]));
         System.out.println("Total Entries: " + data.length);
-
-        TablePanel.createTable(data);
     }
 }
