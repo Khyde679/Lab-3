@@ -12,10 +12,7 @@ public class GUIRunnable extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(1000, 1000));
         TablePanel tablePanel = new TablePanel(data);
-        DetailsPanel detailsPanel = new DetailsPanel(tablePanel.getTable());
-
         frame.add(tablePanel);
-        frame.add(detailsPanel);
 
         frame.pack();
         frame.setVisible(true);

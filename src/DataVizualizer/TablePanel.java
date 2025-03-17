@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TablePanel extends JPanel {
-    private static JTable table;
 
     TablePanel(Object[][] data) {
         JFrame frame = new JFrame();
@@ -16,12 +15,12 @@ public class TablePanel extends JPanel {
                 "Internet Access", "Parent Education Level", "Family Income Level", "Stress Level", "Hours of Sleep per Week"
         };
 
-        table = new JTable(data, columnNames);
+        JTable table = new JTable(data, columnNames);
         JScrollPane scroll = new JScrollPane(table);
         frame.add(scroll, BorderLayout.CENTER);
-    }
 
-    public JTable getTable() {
-        return table;
+        DetailsPanel detailsPanel = new DetailsPanel(table);
+        frame.add(detailsPanel, BorderLayout.EAST);
+
     }
 }
