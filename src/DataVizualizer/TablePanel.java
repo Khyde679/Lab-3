@@ -6,8 +6,8 @@ import java.awt.*;
 public class TablePanel extends JPanel {
 
     TablePanel(Object[][] data) {
-        JFrame frame = new JFrame();
-        setBackground(Color.GREEN);
+        this.setLayout(new BorderLayout());
+        this.setPreferredSize(new Dimension(700, 500));
 
         String[] columnNames = {
                 "Student ID", "First Name", "Last Name", "Student Email", "Gender", "Age", "Department", "Attendance", "Midterm Score", "Final Score",
@@ -17,10 +17,10 @@ public class TablePanel extends JPanel {
 
         JTable table = new JTable(data, columnNames);
         JScrollPane scroll = new JScrollPane(table);
-        frame.add(scroll, BorderLayout.CENTER);
+        this.add(scroll, BorderLayout.CENTER);
 
         DetailsPanel detailsPanel = new DetailsPanel(table);
-        frame.add(detailsPanel, BorderLayout.EAST);
+        this.add(detailsPanel, BorderLayout.SOUTH);
 
     }
 }
