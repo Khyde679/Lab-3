@@ -22,5 +22,8 @@ public class TablePanel extends JPanel {
         DetailsPanel detailsPanel = new DetailsPanel(table);
         this.add(detailsPanel, BorderLayout.SOUTH);
 
+        StatsPanel statsPanel = new StatsPanel(table);
+        this.add(statsPanel, BorderLayout.EAST);
+
     }
 }
