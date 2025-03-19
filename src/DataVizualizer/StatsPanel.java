@@ -6,9 +6,8 @@ import java.awt.*;
 public class StatsPanel extends JPanel {
 
     public StatsPanel(JTable table) {
-        this.setLayout(new BorderLayout());
-        this.setPreferredSize(new Dimension(100, 100));
-        this.setBackground(Color.BLUE);
+        this.setPreferredSize(new Dimension(300, 100));
+        this.setBackground(Color.LIGHT_GRAY);
 
         JLabel avgScore = new JLabel("Average Total Score: " + getAvgScore(table));
         JLabel avgAge = new JLabel("Average Age: " + getAvgAge(table));
@@ -22,10 +21,12 @@ public class StatsPanel extends JPanel {
 
     private float getAvgAttendance(JTable table) {
         float score = 0;
-        int total = 0;
+        float total = 0;
+        Object tableValue;
         for (int i = 0; i < table.getRowCount(); i++) {
-            if ((float)table.getValueAt(i, 7) != -1) {
-                score += (float)table.getValueAt(i, 7);
+            tableValue = table.getValueAt(i, 7);
+            if (tableValue instanceof Float && (Float)tableValue != -1) {
+                score += (float)tableValue;
             }
             total++;
         }
@@ -35,10 +36,12 @@ public class StatsPanel extends JPanel {
 
     private float getAvgAge(JTable table) {
         float score = 0;
-        int total = 0;
-        for (int i = 1; i < table.getRowCount(); i++) {
-            if ((float)table.getValueAt(i, 5) != -1) {
-                score += (float)table.getValueAt(i, 5);
+        float total = 0;
+        Object tableValue;
+        for (int i = 0; i < table.getRowCount(); i++) {
+            tableValue = table.getValueAt(i, 5);
+            if (tableValue instanceof Integer && (Integer)tableValue != -1) {
+                score += (float)(int)tableValue;
             }
             total++;
         }
@@ -48,10 +51,12 @@ public class StatsPanel extends JPanel {
 
     private float getAvgScore(JTable table) {
         float score = 0;
-        int total = 0;
+        float total = 0;
+        Object tableValue;
         for (int i = 0; i < table.getRowCount(); i++) {
-            if ((float)table.getValueAt(i, 14) != -1) {
-                score += (float)table.getValueAt(i, 14);
+            tableValue = table.getValueAt(i, 14);
+            if (tableValue instanceof Float && (Float)tableValue != -1) {
+                score += (float)tableValue;
             }
             total++;
         }
